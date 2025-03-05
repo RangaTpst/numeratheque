@@ -5,7 +5,10 @@
 <ul>
 @foreach($loans as $loan)
     <li>
-        Livre : {{ $loan->book->title }} | Emprunté par : {{ $loan->user->name }} | Date d'emprunt : {{ $loan->loan_date->format('d/m/Y') }}
+        Livre : {{ $loan->book->title }} | 
+        Emprunté par : {{ $loan->user->name }} | 
+        Date d'emprunt : {{ $loan->loan_date ? $loan->loan_date->format('d/m/Y') : 'Non définie' }}
+        
         <a href="{{ route('loans.show', $loan) }}">Voir</a>
         <a href="{{ route('loans.edit', $loan) }}">Modifier</a>
         <form action="{{ route('loans.destroy', $loan) }}" method="POST" style="display:inline;">

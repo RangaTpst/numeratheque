@@ -9,7 +9,7 @@ use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Dashboard accessible uniquement aux utilisateurs connectés et vérifiés
 Route::get('/dashboard', function () {
