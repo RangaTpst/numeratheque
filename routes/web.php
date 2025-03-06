@@ -5,15 +5,26 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoanController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\IsAdmin;
+use Carbon\Carbon;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-// Dashboard accessible uniquement aux utilisateurs connectés et vérifiés
+// Dashboard utilisateur (accessible uniquement aux utilisateurs connectés et vérifiés)
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = Auth::user();
+    $loans = $user->loans()
+        ->where(function ($query) {
+            $query->whereNull('return_date')
+                  ->orWhere('return_date', '>=', Carbon::now());
+        })
+        ->with('book')
+        ->get();
+
+    return view('dashboard', compact('user', 'loans'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Routes pour la gestion du profil utilisateur
@@ -23,10 +34,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Routes pour le CRUD des livres, catégories et emprunts (authentifiés uniquement)
-Route::middleware(['auth'])->group(function () {
+// Routes pour le CRUD des livres, catégories et emprunts
+Route::middleware('auth')->group(function () {
+    // Livres
     Route::resource('books', BookController::class);
+    Route::get('/catalogue', [BookController::class, 'list'])->name('books.list');
+    Route::post('/books/{book}/borrow', [LoanController::class, 'borrow'])->name('books.borrow');
+
+    // Catégories
     Route::resource('categories', CategoryController::class);
+
+    // Emprunts
     Route::resource('loans', LoanController::class);
 });
 

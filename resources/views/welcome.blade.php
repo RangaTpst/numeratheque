@@ -21,9 +21,7 @@
             <p class="mb-4">Bonjour, {{ Auth::user()->name }} !</p>
 
             <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-                <a href="{{ route('books.index') }}" class="btn btn-outline-primary">Voir les Livres</a>
-                <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary">Voir les Catégories</a>
-                <a href="{{ route('loans.index') }}" class="btn btn-outline-success">Voir les Emprunts</a>
+                <a href="{{ route('books.list') }}" class="btn btn-outline-primary">Voir les Livres</a>
             </div>
 
         @else
