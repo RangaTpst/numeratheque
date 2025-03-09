@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['admincontroller_0',['AdminController',['../class_app_1_1_http_1_1_controllers_1_1_admin_controller.html',1,'App::Http::Controllers']]],
+  ['admincontroller_2ephp_1',['AdminController.php',['../_admin_controller_8php.html',1,'']]],
+  ['app_3a_3ahttp_3a_3acontrollers_2',['Controllers',['../namespace_app_1_1_http_1_1_controllers.html',1,'App::Http']]],
+  ['app_3a_3ahttp_3a_3acontrollers_3a_3aauth_3',['Auth',['../namespace_app_1_1_http_1_1_controllers_1_1_auth.html',1,'App::Http::Controllers']]],
+  ['app_3a_3ahttp_3a_3amiddleware_4',['Middleware',['../namespace_app_1_1_http_1_1_middleware.html',1,'App::Http']]],
+  ['app_3a_3ahttp_3a_3arequests_5',['Requests',['../namespace_app_1_1_http_1_1_requests.html',1,'App::Http']]],
+  ['app_3a_3ahttp_3a_3arequests_3a_3aauth_6',['Auth',['../namespace_app_1_1_http_1_1_requests_1_1_auth.html',1,'App::Http::Requests']]],
+  ['app_3a_3amodels_7',['Models',['../namespace_app_1_1_models.html',1,'App']]],
+  ['app_3a_3aproviders_8',['Providers',['../namespace_app_1_1_providers.html',1,'App']]],
+  ['app_3a_3aview_3a_3acomponents_9',['Components',['../namespace_app_1_1_view_1_1_components.html',1,'App::View']]],
+  ['applayout_10',['AppLayout',['../class_app_1_1_view_1_1_components_1_1_app_layout.html',1,'App::View::Components']]],
+  ['applayout_2ephp_11',['AppLayout.php',['../_app_layout_8php.html',1,'']]],
+  ['appserviceprovider_12',['AppServiceProvider',['../class_app_1_1_providers_1_1_app_service_provider.html',1,'App::Providers']]],
+  ['appserviceprovider_2ephp_13',['AppServiceProvider.php',['../_app_service_provider_8php.html',1,'']]],
+  ['authenticate_14',['authenticate',['../class_app_1_1_http_1_1_requests_1_1_auth_1_1_login_request.html#a7be4cc5f6c415464b716807cc1b862ce',1,'App::Http::Requests::Auth::LoginRequest']]],
+  ['authenticatedsessioncontroller_15',['AuthenticatedSessionController',['../class_app_1_1_http_1_1_controllers_1_1_auth_1_1_authenticated_session_controller.html',1,'App::Http::Controllers::Auth']]],
+  ['authenticatedsessioncontroller_2ephp_16',['AuthenticatedSessionController.php',['../_authenticated_session_controller_8php.html',1,'']]],
+  ['authorize_17',['authorize',['../class_app_1_1_http_1_1_requests_1_1_auth_1_1_login_request.html#ac36d9d087ac78f077abd42e3cb006292',1,'App::Http::Requests::Auth::LoginRequest']]],
+  ['authorizeadmin_18',['authorizeAdmin',['../class_app_1_1_http_1_1_controllers_1_1_book_controller.html#a30f044d661ae99c27222d232a28f1748',1,'App\Http\Controllers\BookController\authorizeAdmin()'],['../class_app_1_1_http_1_1_controllers_1_1_category_controller.html#a260281eb9409c46b2ca20228db0a81c5',1,'App\Http\Controllers\CategoryController\authorizeAdmin()'],['../class_app_1_1_http_1_1_controllers_1_1_loan_controller.html#ac3bbf439a45350750b0559f95227ce4c',1,'App\Http\Controllers\LoanController\authorizeAdmin()']]]
+];

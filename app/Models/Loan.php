@@ -8,6 +8,30 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Carbon\Carbon;
 
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $book_id
+ * @property \Illuminate\Support\Carbon $loan_date
+ * @property \Illuminate\Support\Carbon|null $return_date
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Book|null $book
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereBookId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereLoanDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereReturnDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Loan whereUserId($value)
+ * @mixin \Eloquent
+ */
 class Loan extends Model
 {
     use HasFactory;

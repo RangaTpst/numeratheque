@@ -8,6 +8,36 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\ValidationException;
 use Carbon\Carbon;
 
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $author
+ * @property \Illuminate\Support\Carbon|null $published_at
+ * @property int $category_id
+ * @property string|null $image
+ * @property string|null $summary
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Category|null $category
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Loan> $loans
+ * @property-read int|null $loans_count
+ * @method static \Database\Factories\BookFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereAuthor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereSummary($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Book whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Book extends Model
 {
     use HasFactory;

@@ -1,0 +1,167 @@
+\doxysection{App\textbackslash{}Models\textbackslash{}Book Class Reference}
+\hypertarget{class_app_1_1_models_1_1_book}{}\label{class_app_1_1_models_1_1_book}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+
+
+Inheritance diagram for App\textbackslash{}Models\textbackslash{}Book\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_app_1_1_models_1_1_book__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for App\textbackslash{}Models\textbackslash{}Book\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_app_1_1_models_1_1_book__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_book_a6b4b02d8b4145b599d2ac78066672330}{category}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_book_a9bd087bd90a7ba64b6c62701937f2d9e}{loans}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_book_af017e0e98d4ccb8e4677dad9e2006d99}{is\+Borrowed}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_book_a254eec17745d0965270653ab6bf369aa}{validate\+Data}} (array \$data)
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_book_aaa84112385e68503e7d3ba74649169ef}{create\+Book}} (array \$data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_book_a6032cf112b1bd6dbffa29753e4ea96e8}{\$fillable}} = \mbox{[}\textquotesingle{}title\textquotesingle{}, \textquotesingle{}author\textquotesingle{}, \textquotesingle{}published\+\_\+at\textquotesingle{}, \textquotesingle{}category\+\_\+id\textquotesingle{}, \textquotesingle{}image\textquotesingle{}, \textquotesingle{}summary\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_book_a09bf71f88a7244e00b013d8ce269253f}{\$casts}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_models_1_1_book_a6b4b02d8b4145b599d2ac78066672330}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!category@{category}}
+\index{category@{category}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{category()}{category()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_a6b4b02d8b4145b599d2ac78066672330} 
+App\textbackslash{}\+Models\textbackslash{}\+Book\+::category (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_app_1_1_models_1_1_book_aaa84112385e68503e7d3ba74649169ef}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!createBook@{createBook}}
+\index{createBook@{createBook}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{createBook()}{createBook()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_aaa84112385e68503e7d3ba74649169ef} 
+static App\textbackslash{}\+Models\textbackslash{}\+Book\+::create\+Book (\begin{DoxyParamCaption}\item[{array}]{\$data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Créer un livre avec validation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Book 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Validation\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_1_1_models_1_1_book_aaa84112385e68503e7d3ba74649169ef_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_app_1_1_models_1_1_book_af017e0e98d4ccb8e4677dad9e2006d99}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!isBorrowed@{isBorrowed}}
+\index{isBorrowed@{isBorrowed}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{isBorrowed()}{isBorrowed()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_af017e0e98d4ccb8e4677dad9e2006d99} 
+App\textbackslash{}\+Models\textbackslash{}\+Book\+::is\+Borrowed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Vérifie si le livre est actuellement emprunté Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_1_1_models_1_1_book_af017e0e98d4ccb8e4677dad9e2006d99_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_app_1_1_models_1_1_book_a9bd087bd90a7ba64b6c62701937f2d9e}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!loans@{loans}}
+\index{loans@{loans}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{loans()}{loans()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_a9bd087bd90a7ba64b6c62701937f2d9e} 
+App\textbackslash{}\+Models\textbackslash{}\+Book\+::loans (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_1_1_models_1_1_book_a9bd087bd90a7ba64b6c62701937f2d9e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_app_1_1_models_1_1_book_a254eec17745d0965270653ab6bf369aa}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!validateData@{validateData}}
+\index{validateData@{validateData}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{validateData()}{validateData()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_a254eec17745d0965270653ab6bf369aa} 
+static App\textbackslash{}\+Models\textbackslash{}\+Book\+::validate\+Data (\begin{DoxyParamCaption}\item[{array}]{\$data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Valide les données d\textquotesingle{}un livre avant création ou mise à jour.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Validation\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_1_1_models_1_1_book_a254eec17745d0965270653ab6bf369aa_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_app_1_1_models_1_1_book_a09bf71f88a7244e00b013d8ce269253f}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!\$casts@{\$casts}}
+\index{\$casts@{\$casts}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{\$casts}{\$casts}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_a09bf71f88a7244e00b013d8ce269253f} 
+App\textbackslash{}\+Models\textbackslash{}\+Book\+::\$casts\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'published\_at'}\ =>\ \textcolor{stringliteral}{'date'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{class_app_1_1_models_1_1_book_a6032cf112b1bd6dbffa29753e4ea96e8}\index{App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}!\$fillable@{\$fillable}}
+\index{\$fillable@{\$fillable}!App\textbackslash{}Models\textbackslash{}Book@{App\textbackslash{}Models\textbackslash{}Book}}
+\doxysubsubsection{\texorpdfstring{\$fillable}{\$fillable}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_book_a6032cf112b1bd6dbffa29753e4ea96e8} 
+App\textbackslash{}\+Models\textbackslash{}\+Book\+::\$fillable = \mbox{[}\textquotesingle{}title\textquotesingle{}, \textquotesingle{}author\textquotesingle{}, \textquotesingle{}published\+\_\+at\textquotesingle{}, \textquotesingle{}category\+\_\+id\textquotesingle{}, \textquotesingle{}image\textquotesingle{}, \textquotesingle{}summary\textquotesingle{}\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Models/\mbox{\hyperlink{_book_8php}{Book.\+php}}\end{DoxyCompactItemize}

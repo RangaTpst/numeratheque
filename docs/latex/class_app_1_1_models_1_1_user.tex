@@ -1,0 +1,161 @@
+\doxysection{App\textbackslash{}Models\textbackslash{}User Class Reference}
+\hypertarget{class_app_1_1_models_1_1_user}{}\label{class_app_1_1_models_1_1_user}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+
+
+Inheritance diagram for App\textbackslash{}Models\textbackslash{}User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_app_1_1_models_1_1_user__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for App\textbackslash{}Models\textbackslash{}User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_app_1_1_models_1_1_user__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_a86a2c879bd1d64dc168f9f3f3d6ad744}{loans}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_user_ae21aa633efb74d603d055aadb1b2c63e}{validate\+Data}} (array \$data)
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_user_af10b9660e26e556aadf4bc245dc659a1}{create\+User}} (array \$data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_ab4030437e467a0cc396b0c3ea53199f7}{\$fillable}}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_a1f25bef37dae884e548034f839fa1f63}{\$hidden}}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_a5c1736a4adf4ff10495df9a6c4e6dd8e}{\$casts}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_models_1_1_user_af10b9660e26e556aadf4bc245dc659a1}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}!createUser@{createUser}}
+\index{createUser@{createUser}!App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_af10b9660e26e556aadf4bc245dc659a1} 
+static App\textbackslash{}\+Models\textbackslash{}\+User\+::create\+User (\begin{DoxyParamCaption}\item[{array}]{\$data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Créer un utilisateur avec validation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Validation\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_1_1_models_1_1_user_af10b9660e26e556aadf4bc245dc659a1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_app_1_1_models_1_1_user_a86a2c879bd1d64dc168f9f3f3d6ad744}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}!loans@{loans}}
+\index{loans@{loans}!App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+\doxysubsubsection{\texorpdfstring{loans()}{loans()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_a86a2c879bd1d64dc168f9f3f3d6ad744} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+::loans (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_app_1_1_models_1_1_user_ae21aa633efb74d603d055aadb1b2c63e}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}!validateData@{validateData}}
+\index{validateData@{validateData}!App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+\doxysubsubsection{\texorpdfstring{validateData()}{validateData()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_ae21aa633efb74d603d055aadb1b2c63e} 
+static App\textbackslash{}\+Models\textbackslash{}\+User\+::validate\+Data (\begin{DoxyParamCaption}\item[{array}]{\$data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Valide les données d\textquotesingle{}un utilisateur avant création ou mise à jour.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Validation\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_1_1_models_1_1_user_ae21aa633efb74d603d055aadb1b2c63e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_app_1_1_models_1_1_user_a5c1736a4adf4ff10495df9a6c4e6dd8e}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}!\$casts@{\$casts}}
+\index{\$casts@{\$casts}!App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+\doxysubsubsection{\texorpdfstring{\$casts}{\$casts}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_a5c1736a4adf4ff10495df9a6c4e6dd8e} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+::\$casts\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'email\_verified\_at'}\ =>\ \textcolor{stringliteral}{'datetime'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'password'}\ =>\ \textcolor{stringliteral}{'hashed'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{class_app_1_1_models_1_1_user_ab4030437e467a0cc396b0c3ea53199f7}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}!\$fillable@{\$fillable}}
+\index{\$fillable@{\$fillable}!App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+\doxysubsubsection{\texorpdfstring{\$fillable}{\$fillable}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_ab4030437e467a0cc396b0c3ea53199f7} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+::\$fillable\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'name'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'email'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'password'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{class_app_1_1_models_1_1_user_a1f25bef37dae884e548034f839fa1f63}\index{App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}!\$hidden@{\$hidden}}
+\index{\$hidden@{\$hidden}!App\textbackslash{}Models\textbackslash{}User@{App\textbackslash{}Models\textbackslash{}User}}
+\doxysubsubsection{\texorpdfstring{\$hidden}{\$hidden}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_a1f25bef37dae884e548034f839fa1f63} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+::\$hidden\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'password'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'remember\_token'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Models/\mbox{\hyperlink{_user_8php}{User.\+php}}\end{DoxyCompactItemize}
