@@ -1,0 +1,31 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$class_app_1_1_http_1_1_controllers_1_1_controller.html" title=" " alt="" coords="5,471,146,513"/>
+<area shape="rect" id="Node000001" href="$class_app_1_1_http_1_1_controllers_1_1_admin_controller.html" title=" " alt="" coords="244,5,384,48"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="79,455,95,362,119,243,152,132,171,88,192,58,215,41,242,31,244,36,218,46,196,62,176,91,157,134,125,245,100,363,85,456"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_authenticated_session_controller.html" title=" " alt="" coords="194,72,434,115"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="75,455,82,385,99,297,114,250,134,205,160,162,192,125,207,113,210,117,196,129,164,165,139,207,119,252,105,298,87,386,80,456"/>
+<area shape="rect" id="Node000003" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_confirmable_password_controller.html" title=" " alt="" coords="194,139,434,181"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="78,455,88,397,109,326,124,290,142,254,165,221,192,191,208,180,211,184,195,195,169,224,147,257,128,292,114,328,94,398,83,456"/>
+<area shape="rect" id="Node000004" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_email_verification_notification_controller.html" title=" " alt="" coords="204,205,424,264"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="85,455,100,414,122,365,153,316,192,274,208,262,211,267,195,278,157,320,127,368,105,416,90,457"/>
+<area shape="rect" id="Node000005" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_email_verification_prompt_controller.html" title=" " alt="" coords="216,288,412,347"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="97,456,137,405,163,379,192,356,214,344,217,348,195,361,167,383,141,409,101,460"/>
+<area shape="rect" id="Node000006" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_new_password_controller.html" title=" " alt="" coords="215,371,412,413"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="122,460,193,423,224,411,226,416,195,428,124,465"/>
+<area shape="rect" id="Node000007" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_password_controller.html" title=" " alt="" coords="229,437,399,480"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="161,477,228,468,229,473,161,483"/>
+<area shape="rect" id="Node000008" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_password_reset_link_controller.html" title=" " alt="" coords="199,504,428,547"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="162,501,199,507,199,512,161,507"/>
+<area shape="rect" id="Node000009" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_registered_user_controller.html" title=" " alt="" coords="212,571,416,613"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="124,519,195,556,226,568,224,573,193,561,122,524"/>
+<area shape="rect" id="Node000010" href="$class_app_1_1_http_1_1_controllers_1_1_auth_1_1_verify_email_controller.html" title=" " alt="" coords="225,637,403,680"/>
+<area shape="poly" id="edge10_Node000000_Node000010" title=" " alt="" coords="101,525,141,576,167,601,195,623,226,638,223,643,192,628,163,605,137,580,96,528"/>
+<area shape="rect" id="Node000011" href="$class_app_1_1_http_1_1_controllers_1_1_book_controller.html" title=" " alt="" coords="244,704,384,747"/>
+<area shape="poly" id="edge11_Node000000_Node000011" title=" " alt="" coords="91,527,106,565,129,609,158,653,195,690,219,704,244,713,243,718,216,708,192,694,154,656,124,612,101,567,86,529"/>
+<area shape="rect" id="Node000012" href="$class_app_1_1_http_1_1_controllers_1_1_category_controller.html" title=" " alt="" coords="244,771,384,813"/>
+<area shape="poly" id="edge12_Node000000_Node000012" title=" " alt="" coords="85,528,97,580,118,641,151,704,171,732,195,757,218,771,244,781,242,786,216,776,192,761,167,735,146,706,114,643,92,581,80,529"/>
+<area shape="rect" id="Node000013" href="$class_app_1_1_http_1_1_controllers_1_1_loan_controller.html" title=" " alt="" coords="244,837,384,880"/>
+<area shape="poly" id="edge13_Node000000_Node000013" title=" " alt="" coords="82,529,90,592,109,672,124,713,143,753,166,791,195,823,218,839,244,848,242,853,216,843,192,827,162,794,138,756,119,715,104,673,85,593,76,529"/>
+<area shape="rect" id="Node000014" href="$class_app_1_1_http_1_1_controllers_1_1_profile_controller.html" title=" " alt="" coords="244,904,384,947"/>
+<area shape="poly" id="edge14_Node000000_Node000014" title=" " alt="" coords="79,529,84,604,100,701,115,753,135,803,162,849,195,890,218,906,244,916,243,921,216,911,192,894,157,852,130,805,110,754,95,703,78,605,74,529"/>
+</map>

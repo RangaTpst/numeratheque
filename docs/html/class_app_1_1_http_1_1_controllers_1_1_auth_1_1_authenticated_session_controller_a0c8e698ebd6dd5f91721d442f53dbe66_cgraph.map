@@ -1,0 +1,10 @@
+<map id="App\Http\Controllers\Auth\AuthenticatedSessionController\store" name="App\Http\Controllers\Auth\AuthenticatedSessionController\store">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,278,89"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_http_1_1_requests_1_1_auth_1_1_login_request.html#a7be4cc5f6c415464b716807cc1b862ce" title=" " alt="" coords="326,47,506,89"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,65,310,65,310,71,278,71"/>
+<area shape="rect" id="Node000003" href="$class_app_1_1_http_1_1_requests_1_1_auth_1_1_login_request.html#a673cadc2bf050f1c139636c261bc996e" title=" " alt="" coords="554,5,762,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="506,53,538,49,539,54,507,58"/>
+<area shape="rect" id="Node000004" href="$class_app_1_1_http_1_1_requests_1_1_auth_1_1_login_request.html#aea2a6943931bedd74179057a5d67bb5c" title=" " alt="" coords="810,47,983,89"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="507,71,554,73,658,75,762,73,794,72,795,77,762,79,658,81,554,79,506,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="763,47,795,51,795,56,762,52"/>
+</map>

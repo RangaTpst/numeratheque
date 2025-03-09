@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'role' => 'adherent', // Le rôle par défaut est "adherent"
         ];
     }
 
@@ -39,6 +40,26 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indique que l'utilisateur doit avoir le rôle 'admin'.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'admin',
+        ]);
+    }
+
+    /**
+     * Indique que l'utilisateur doit avoir le rôle 'adherent'.
+     */
+    public function adherent(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'adherent',
         ]);
     }
 }

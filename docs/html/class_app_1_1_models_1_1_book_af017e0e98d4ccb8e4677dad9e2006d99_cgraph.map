@@ -1,0 +1,5 @@
+<map id="App\Models\Book\isBorrowed" name="App\Models\Book\isBorrowed">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,199,32"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_models_1_1_book.html#a9bd087bd90a7ba64b6c62701937f2d9e" title=" " alt="" coords="247,5,406,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,16,231,16,231,21,199,21"/>
+</map>
