@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            //'role' => 'admin', // Optionnel si tu veux qu'il soit admin directement
+            //'role' => 'admin', // Optionnel si on veut qu'il soit admin directement
         ]);
 
         // Exécution des seeders personnalisés

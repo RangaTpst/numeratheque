@@ -76,7 +76,7 @@ class User extends Authenticatable
     $rules = [
         'name' => ['required', 'string', 'max:50', 'regex:/^[a-zA-ZÀ-ÿ\s\-]+$/'],
         'email' => ['required', 'string', 'email', 'max:255'],
-        'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'],
+        'password' => ['required', 'string', 'min:8', 'regex:/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/'],
     ];
 
     $validator = Validator::make($data, $rules);

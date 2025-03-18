@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class BookController extends Controller
 {
@@ -36,7 +37,8 @@ class BookController extends Controller
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_at' => 'nullable|date',
-            'category_id' => 'required|exists:categories,id',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'summary' => 'nullable|string',
         ]);
@@ -45,7 +47,9 @@ class BookController extends Controller
             $validated['image'] = $request->file('image')->store('books', 'public');
         }
 
-        Book::create($validated);
+        $book = Book::create($validated);
+        $book->categories()->attach($request->categories);
+
 
         return redirect()->route('books.index')->with('success', 'Livre ajouté avec succès.');
     }
@@ -70,7 +74,8 @@ class BookController extends Controller
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_at' => 'nullable|date',
-            'category_id' => 'required|exists:categories,id',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'summary' => 'nullable|string',
         ]);
@@ -80,6 +85,8 @@ class BookController extends Controller
         }
 
         $book->update($validated);
+        $book->categories()->sync($request->categories);
+
 
         return redirect()->route('books.index')->with('success', 'Livre mis à jour avec succès.');
     }
@@ -87,8 +94,14 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $this->authorizeAdmin();
-        $book->delete();
-        return redirect()->route('books.index')->with('success', 'Livre supprimé avec succès.');
+
+        try {
+            $book->canBeDeleted(); // Vérifie la possibilité de suppression
+            $book->delete();
+            return redirect()->route('books.index')->with('success', 'Livre supprimé avec succès.');
+        } catch (ValidationException $e) {
+            return redirect()->route('books.index')->withErrors($e->errors());
+        }
     }
 
     protected function authorizeAdmin()

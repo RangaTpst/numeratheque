@@ -38,8 +38,8 @@
 
                     <div class="mb-3">
                         <label for="category_id" class="form-label">Catégorie</label>
-                        <select name="category_id" id="category_id" class="form-select" required>
-                            @foreach($categories as $category)
+                        <select name="categories[]" id="categories" multiple>
+                            @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>

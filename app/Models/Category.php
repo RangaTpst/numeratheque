@@ -32,9 +32,12 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
+    /**
+     * Relation Many-to-Many avec les livres
+     */
     public function books()
     {
-        return $this->hasMany(Book::class);
+        return $this->belongsToMany(Book::class, 'book_category');
     }
 
     /**

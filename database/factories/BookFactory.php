@@ -16,9 +16,20 @@ class BookFactory extends Factory
             'title' => $this->faker->sentence(3), // Titre aléatoire
             'author' => $this->faker->name(), // Nom aléatoire
             'published_at' => $this->faker->date(), // Date aléatoire
-            'category_id' => Category::factory(), // Génère automatiquement une catégorie
             'image' => $this->faker->imageUrl(), // URL aléatoire d’image
             'summary' => $this->faker->paragraph(), // Résumé aléatoire
         ];
+    }
+
+    /**
+     * Associe aléatoirement des catégories au livre après création.
+     */
+    public function configure()
+    {
+        return $this->afterCreating(function (Book $book) {
+            // Associe entre 1 et 3 catégories aléatoires
+            $categories = Category::inRandomOrder()->limit(rand(1, 3))->pluck('id');
+            $book->categories()->attach($categories);
+        });
     }
 }
