@@ -36,9 +36,10 @@ class Category extends Model
      * Relation Many-to-Many avec les livres
      */
     public function books()
-    {
-        return $this->belongsToMany(Book::class, 'book_category');
-    }
+{
+    return $this->hasMany(Book::class);
+}
+
 
     /**
      * Valide les données d'une catégorie avant création ou mise à jour.

@@ -1,40 +1,73 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LoanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\IsAdmin;
 use Carbon\Carbon;
 
+use App\Models\Book;
+use App\Models\Loan;
+use App\Models\Category;
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoanController;
+
+// Accueil
 Route::get('/', function () {
-    return view('welcome');
+    $category = Category::has('books')->inRandomOrder()->first();
+    $books = $category ? $category->books()->inRandomOrder()->take(4)->get() : collect();
+
+    return view('welcome', compact('category', 'books'));
 })->name('welcome');
 
-// Dashboard utilisateur (accessible uniquement aux utilisateurs connectés et vérifiés)
+
+// Tableau de bord utilisateur
 Route::get('/dashboard', function () {
     $user = Auth::user();
-    $loans = $user->loans()
-        ->where(function ($query) {
-            $query->whereNull('return_date')
-                  ->orWhere('return_date', '>=', Carbon::now());
-        })
-        ->with('book')
-        ->get();
 
-    return view('dashboard', compact('user', 'loans'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+    // Tous les emprunts encore en base (pas supprimés = actifs)
+    $loans = $user->loans()->where('returned', false)->with('book')->get();
 
-// Routes pour la gestion du profil utilisateur
+    // Statistiques
+    $totalBooks = Book::count();
+    $borrowedBooks = Loan::where('returned', false)->count();
+    $availableBooks = $totalBooks - $borrowedBooks;
+
+    $mostUsedCategory = Category::withCount('books')
+        ->orderByDesc('books_count')
+        ->first();
+
+    // Pas d'emprunts rendus enregistrés (dans ton système actuel)
+    $recentReturns = $user->loans()
+    ->where('returned', true)
+    ->latest('return_date')
+    ->take(3)
+    ->with('book')
+    ->get();
+
+
+    return view('dashboard', compact(
+        'loans',
+        'totalBooks',
+        'borrowedBooks',
+        'availableBooks',
+        'mostUsedCategory',
+        'recentReturns'
+    ));
+})->middleware(['auth'])->name('dashboard');
+
+
+// Gestion du profil utilisateur
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Routes pour le CRUD des livres, catégories et emprunts
+
+// Gestion des livres, catégories et emprunts
 Route::middleware('auth')->group(function () {
     // Livres
     Route::resource('books', BookController::class);
@@ -46,9 +79,15 @@ Route::middleware('auth')->group(function () {
 
     // Emprunts
     Route::resource('loans', LoanController::class);
+
+    // Marquer un prêt comme retourné (admin uniquement)
+    Route::patch('/admin/loans/{loan}/return', [LoanController::class, 'markAsReturned'])
+        ->name('admin.loans.return')
+        ->middleware(IsAdmin::class);
 });
 
-// Espace Admin protégé par le middleware IsAdmin
+
+// Espace administrateur
 Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');

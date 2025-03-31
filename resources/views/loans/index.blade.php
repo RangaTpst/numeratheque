@@ -31,6 +31,19 @@
                                 <td class="text-end">
                                     <a href="{{ route('loans.show', $loan) }}" class="btn btn-sm btn-outline-primary">Voir</a>
                                     <a href="{{ route('loans.edit', $loan) }}" class="btn btn-sm btn-outline-secondary">Modifier</a>
+
+                                    {{-- Bouton retour si le livre n'a pas encore été rendu --}}
+                                    @if(!$loan->returned)
+                                        <form action="{{ route('admin.loans.return', $loan) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="btn btn-sm btn-outline-success"
+                                                onclick="return confirm('Confirmer le retour de ce livre ?')">
+                                                Marquer comme retourné
+                                            </button>
+                                        </form>
+                                    @endif
+
                                     <form action="{{ route('loans.destroy', $loan) }}" method="POST" class="d-inline"
                                           onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet emprunt ?');">
                                         @csrf

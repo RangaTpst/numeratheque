@@ -16,11 +16,34 @@ class BookController extends Controller
         return view('books.index', compact('books'));
     }
 
-    public function list()
-    {
-        $books = Book::with('category')->get();
-        return view('books.list', compact('books'));
+    public function list(Request $request)
+{
+    $query = Book::with('category');
+
+    // Filtre par catégorie
+    if ($request->filled('category')) {
+        $query->where('category_id', $request->category);
     }
+
+    // Filtre par mot-clé
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where(function ($q) use ($search) {
+            $q->where('title', 'like', "%{$search}%")
+              ->orWhere('author', 'like', "%{$search}%")
+              ->orWhereHas('category', function ($q2) use ($search) {
+                  $q2->where('name', 'like', "%{$search}%");
+              });
+        });
+    }
+
+    $books = $query->get();
+    $categories = Category::all();
+
+    return view('books.list', compact('books', 'categories'));
+}
+
+
 
     public function create()
     {
@@ -37,8 +60,7 @@ class BookController extends Controller
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_at' => 'nullable|date',
-            'categories' => 'required|array',
-            'categories.*' => 'exists:categories,id',
+            'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'summary' => 'nullable|string',
         ]);
@@ -47,9 +69,7 @@ class BookController extends Controller
             $validated['image'] = $request->file('image')->store('books', 'public');
         }
 
-        $book = Book::create($validated);
-        $book->categories()->attach($request->categories);
-
+        Book::create($validated);
 
         return redirect()->route('books.index')->with('success', 'Livre ajouté avec succès.');
     }
@@ -74,8 +94,7 @@ class BookController extends Controller
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_at' => 'nullable|date',
-            'categories' => 'required|array',
-            'categories.*' => 'exists:categories,id',
+            'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'summary' => 'nullable|string',
         ]);
@@ -85,8 +104,6 @@ class BookController extends Controller
         }
 
         $book->update($validated);
-        $book->categories()->sync($request->categories);
-
 
         return redirect()->route('books.index')->with('success', 'Livre mis à jour avec succès.');
     }
@@ -96,7 +113,7 @@ class BookController extends Controller
         $this->authorizeAdmin();
 
         try {
-            $book->canBeDeleted(); // Vérifie la possibilité de suppression
+            $book->canBeDeleted();
             $book->delete();
             return redirect()->route('books.index')->with('success', 'Livre supprimé avec succès.');
         } catch (ValidationException $e) {
