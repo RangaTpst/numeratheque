@@ -1,109 +1,228 @@
 
-# Projet Numérathèque
+# 📚 Projet BTS SIO - Numérathèque
 
-## Description
+## 1. Présentation
 
-Le projet **Numérathèque** est une application de gestion de bibliothèque en ligne permettant aux utilisateurs de consulter, emprunter et gérer des livres. L'application a été développée avec Laravel 11 et utilise une base de données MySQL pour stocker les informations liées aux livres, utilisateurs et emprunts.
+Le projet **Numérathèque** est une application de gestion de bibliothèque en ligne développée dans le cadre de l'épreuve E5 du **BTS SIO** (SISR/SLAM).  
+Elle permet aux utilisateurs de consulter, emprunter et gérer des livres à distance en toute sécurité.
 
-## Fonctionnalités
+Développée sous **Laravel 11**, utilisant une base de données **MySQL**, et compatible avec un déploiement sous **Debian 11** et **Windows WAMP**.
+
+---
+
+## 2. Fonctionnalités principales
 
 - Consultation des livres disponibles avec leurs détails (titre, auteur, date de publication, catégorie).
-- Emprunt de livres avec possibilité de définir une date de retour.
+- Emprunt et gestion des réservations de livres.
 - Gestion des livres, des catégories et des emprunts pour les administrateurs.
-- Gestion des utilisateurs et de leurs droits d'accès.
-- Gestion des images de couverture pour chaque livre.
-- Interface simple et intuitive pour une navigation fluide.
+- Gestion des utilisateurs et des droits d'accès.
+- Upload et gestion des images de couverture des livres.
+- Interface intuitive et réactive.
+- Historique des emprunts pour chaque utilisateur.
+- Blog / Actualités de la bibliothèque. (non implémenté)
 
-## Installation
+---
 
-### Prérequis
+## 3. Structure du projet
+
+- **app/** : Contrôleurs, modèles, services (logique métier).
+- **resources/** : Vues Blade, fichiers CSS et JS.
+- **routes/** : Routes web de l'application.
+- **storage/** : Fichiers générés, images uploadées.
+- **tests/** : Tests unitaires et fonctionnels.
+
+---
+
+## 4. Installation
+
+### 4.1. Guide d'installation Linux (Debian 11 + Nginx + PHP 8.3)
+
+#### Prérequis
 
 - PHP >= 8.3
 - Composer
+- MySQL/MariaDB
+- Nginx
+- Node.js (Vite pour assets)
+
+#### Étapes
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y nginx mariadb-server php8.3 php8.3-fpm php8.3-mysql php8.3-xml php8.3-mbstring php8.3-curl php8.3-zip php8.3-bcmath php8.3-tokenizer unzip curl git nodejs npm
+```
+
+1. Cloner le projet :
+```bash
+git clone https://github.com/votre-username/numeratheque.git
+cd numeratheque
+```
+
+2. Installer les dépendances :
+```bash
+composer install
+npm install
+```
+
+3. Copier et configurer `.env` :
+```bash
+cp .env.example .env
+nano .env
+```
+
+4. Générer la clé :
+```bash
+php artisan key:generate
+```
+
+5. Lancer les migrations :
+```bash
+php artisan migrate --seed
+```
+
+6. Compiler les assets :
+```bash
+npm run build
+```
+
+7. Configurer un vhost Nginx : `/etc/nginx/sites-available/numeratheque`
+
+```nginx
+server {
+    listen 80;
+    server_name votre-domaine.com;
+    root /var/www/numeratheque/public;
+
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+Redémarrer Nginx :
+```bash
+sudo systemctl reload nginx
+```
+
+8. Installer SSL :
+```bash
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx
+```
+
+---
+
+### 4.2. Guide d'installation Windows (WAMP)
+
+#### Prérequis
+
+- Installer [WAMP Server](https://www.wampserver.com/)
+- PHP 8.3
 - MySQL
-- Nginx ou Apache
-- Node.js (pour la gestion des assets via Vite)
+- Node.js et NPM
 
-### Étapes d'installation
+#### Étapes
 
-1. Clonez le projet depuis GitHub :
-    ```bash
-    git clone https://github.com/votre-username/numeratheque.git
-    cd numeratheque
-    ```
+1. Placer le projet dans le dossier `www/` de WAMP.
 
-2. Installez les dépendances PHP avec Composer :
-    ```bash
-    composer install
-    ```
+2. Copier `.env.example` en `.env` et configurer la connexion à MySQL.
 
-3. Copiez le fichier `.env.example` et renommez-le en `.env` :
-    ```bash
-    cp .env.example .env
-    ```
+3. Lancer `composer install` dans le terminal WAMP.
 
-4. Configurez votre base de données dans le fichier `.env` :
-    ```env
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=nom_de_la_base
-    DB_USERNAME=utilisateur
-    DB_PASSWORD=mot_de_passe
-    ```
+4. Générer la clé :
+```bash
+php artisan key:generate
+```
 
-5. Générez la clé d'application Laravel :
-    ```bash
-    php artisan key:generate
-    ```
+5. Créer la base de données via phpMyAdmin.
 
-6. Exécutez les migrations pour créer les tables dans la base de données :
-    ```bash
-    php artisan migrate
-    ```
+6. Lancer les migrations :
+```bash
+php artisan migrate --seed
+```
 
-7. Si vous souhaitez charger des données de test, vous pouvez utiliser les seeder :
-    ```bash
-    php artisan db:seed
-    ```
+7. Installer les dépendances front-end :
+```bash
+npm install
+npm run dev
+```
 
-8. Pour les assets (CSS, JS), vous devez compiler les ressources avec Vite :
-    ```bash
-    npm install
-    npm run dev
-    ```
+8. Accéder au projet via `http://localhost/numeratheque/public`.
 
-9. Démarrez le serveur :
-    ```bash
-    php artisan serve
-    ```
+---
 
-Le projet devrait maintenant être accessible via `http://127.0.0.1:8000` ou `http://votre-ip:8000`.
+## 5. Déploiement en production
 
-## Structure du projet
+- Serveur Debian 11
+- Nginx configuré pour Laravel
+- SSL via Certbot Let's Encrypt
+- Gestion des processus avec Supervisor (optionnel)
+- Accès distant sécurisé uniquement via VPN WireGuard
 
-- **app/** : Contient la logique métier de l'application (contrôleurs, modèles, etc.)
-- **resources/** : Contient les vues (Blade), les fichiers CSS/JS.
-- **routes/** : Contient les fichiers de routes de l'application.
-- **storage/** : Contient les fichiers générés ou téléchargés, y compris les images des livres.
-- **tests/** : Contient les tests unitaires et fonctionnels.
+---
 
-## Tests
+## 6. Sécurité
 
-Pour exécuter les tests unitaires, utilisez la commande suivante :
+- VPN WireGuard obligatoire pour l'accès SSH et administration.
+- Authentification Laravel Breeze.
+- Chiffrement des mots de passe (bcrypt).
+
+---
+
+
+## 7. Sauvegarde automatique
+
+Script `backup_script.sh` :
+
+```bash
+#!/bin/bash
+DATE=$(date +%F)
+mysqldump -u utilisateur -p'motdepasse' numeratheque > /backup/numeratheque_$DATE.sql
+tar -czvf /backup/numeratheque_laravel_$DATE.tar.gz /var/www/numeratheque
+```
+
+Ajout dans cron :
+```bash
+0 2 * * * /chemin/vers/backup_script.sh
+```
+
+---
+
+## 8. Tests
+
+Lancer les tests avec :
 ```bash
 php artisan test
 ```
 
-## Documentation
+---
 
-Le projet utilise **Doxygen** pour générer la documentation technique. Vous pouvez lancer la génération avec :
+## 9. Documentation
+
+Documentation technique générée avec **Doxygen** :
 ```bash
 doxygen Doxyfile
 ```
 
-La documentation sera générée dans le dossier `docs/`.
+Résultat dans `docs/`.
 
-## Licence
+---
 
-Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+## 10. Licence
+
+Projet sous licence **MIT**.
+
+---
+
+# 🏁 Fin du README
