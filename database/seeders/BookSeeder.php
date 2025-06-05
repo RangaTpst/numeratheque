@@ -14,7 +14,7 @@ class BookSeeder extends Seeder
         $faker = Factory::create('fr_FR');
 
         foreach (Category::all() as $category) {
-            for ($i = 0; $i < 5; $i++) {
+            for ($i = 0; $i < 10; $i++) {
                 Book::create([
                     'title' => ucfirst($faker->sentence(4)),
                     'author' => $faker->name(),
